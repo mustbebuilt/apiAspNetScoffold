@@ -14,7 +14,7 @@
             <h1>Fetch Example</h1>
         </div>
         <div>
-            <table>
+            <table class="data">
                 <thead>
                     <tr>
                         <th>Film Title</th>
@@ -31,16 +31,16 @@
 <script>
     (function () {
         // IIFE
-        let api = "Home/ApiData";
+        let api = "api/Films/";
         fetch(api)
             .then(response => response.json())
             .then(myJson => {
                 console.dir(myJson);
                 document.getElementById("myData").innerHTML = myJson.map(obj => {
                     let myStr = `<tr>
-                  <td><a href="getFilmDetails.html?filmID=${obj.FilmID}">${obj.FilmTitle}</a></td>
-                  <td>${obj.FilmCertificate}</td>
-                  <td>${obj.FilmPrice}</td>
+                  <td><a href="getFilmDetails.html?filmID=${obj.filmID}">${obj.filmTitle}</a></td>
+                  <td>${obj.filmCertificate}</td>
+                  <td>${obj.filmPrice}</td>
                 </tr>`
                     return myStr
                 }).join("")

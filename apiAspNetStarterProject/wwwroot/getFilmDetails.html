@@ -26,7 +26,7 @@
         // IIFE
         let urlParams = new URLSearchParams(window.location.search);
         let filmID = urlParams.get('filmID');
-        let api = "Home/ApiDataDetails/" + filmID;
+        let api = "api/Films/" + filmID;
         let heading = document.getElementById("heading");
         let desc = document.getElementById("desc")
 
@@ -34,9 +34,9 @@
             const fetchResult = fetch(api);
             const response = await fetchResult;
             const jsonData = await response.json();
-            heading.innerText = jsonData.FilmTitle
-            desc.innerText = jsonData.FilmDescription
-            img.setAttribute("src","images/"+jsonData.FilmImage)
+            heading.innerText = jsonData.filmTitle
+            desc.innerText = jsonData.filmDescription
+            img.setAttribute("src","images/"+jsonData.filmImage)
         }
         getData(api);
 
